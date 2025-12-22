@@ -5,9 +5,9 @@ import SideBar from './componenets/SideBar'
 function App() {
 
   return (
-    <main className='home'>
+    <div className='home-container'>
         <SideBar/>
-    </main>
+    </div>
   )
 }
 

@@ -4,12 +4,13 @@
   padding: 0;
   text-align: center;
 }
-.home{
+.home-container{
   width: 100%;
   height: auto;
   display: flex;
   justify-content: start;
   align-items: center;
+  background-color: aliceblue;
 }
 .sidebar-container{
   height: 100dvh;
