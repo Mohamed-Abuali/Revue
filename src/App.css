@@ -5,14 +5,14 @@
   text-align: center;
 }
 .home-container{
-  width: 100%;
+  width: 100vw;
   height: auto;
-  display: flex;
-  justify-content: start;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 280px 1fr;
   background-color: aliceblue;
 }
 .sidebar-container{
+  grid-column: ;
   height: 100dvh;
   width: 260px;
   background-color: gray;
