@@ -46,4 +46,5 @@ body{
   width: 150px;
   background-color: aqua;
   border-radius: 24px;
+  list-style: none;
 }
