@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
+  
   margin: 0 auto;
   padding: 0;
-  text-align: center;
+  box-sizing: border-box;
 }
 .home-container{
   width: 100vw;
@@ -12,7 +12,7 @@
   background-color: aliceblue;
 }
 .sidebar-container{
-  grid-column: ;
+  grid-column: 1;
   height: 100dvh;
   width: 260px;
   background-color: gray;
