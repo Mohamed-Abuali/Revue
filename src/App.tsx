@@ -1,6 +1,7 @@
 
 import './App.css'
 import DirList from './componenets/DirList'
+import ErrorList from './componenets/ErrorList'
 import SideBar from './componenets/SideBar'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className='home-container'>
         <SideBar/>
         <DirList/>
+        <ErrorList/>
     </div>
   )
 }

@@ -11,8 +11,9 @@ body{
   width: 100vw;
   height: auto;
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 260px 1fr;
   grid-template-rows: 100px 200px 1fr;
+  gap:5px;
   background-color: aliceblue;
 }
 .sidebar-container{
@@ -28,6 +29,9 @@ body{
   border-radius: 24px;
   border: 2px gray solid;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 .dir-list{
@@ -47,4 +51,9 @@ body{
   background-color: aqua;
   border-radius: 24px;
   list-style: none;
+}
+.error-list-container{
+  grid-row: 3/-1;
+  grid-column: 2;
+  background-color: blue;
 }
