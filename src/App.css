@@ -9,11 +9,18 @@
   height: auto;
   display: grid;
   grid-template-columns: 280px 1fr;
+  grid-template-rows: 100px 300px 1fr;
   background-color: aliceblue;
 }
 .sidebar-container{
   grid-column: 1;
+  grid-row: -1/1;
   height: 100dvh;
   width: 260px;
   background-color: gray;
+}
+.dirlist-container{
+  grid-column: 2;
+  grid-row: 2/3;
+  background-color: red;
 }
