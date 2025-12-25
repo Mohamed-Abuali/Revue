@@ -1,8 +1,14 @@
-import React from 'react'
 
-const Button = () => {
+
+interface BtnProps{
+    text:string,
+    variant?:"main" | "secondary" | "outline",
+    onClick:() => void,
+}
+
+const Button = ({text,variant,onClick}:BtnProps) => {
   return (
-    <button>Button</button>
+    <button onClick={onClick} >{text}</button>
   )
 }
 
