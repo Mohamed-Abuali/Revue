@@ -1,7 +1,7 @@
 import {globSync} from "glob"
 import { parse} from "@babel/parser"
 import path from "path"
-import {  readFileSync} from "fs"
+import {  readFileSync,writeFileSync} from "fs"
 //import * as Rules from "./rules.json"
 
 // @ts-expect-ignore
@@ -20,7 +20,7 @@ type typeATS  = ReturnType<typeof parseToAST>
 
 
 const issues:issue[] = []
-const Rules = JSON.parse(readFileSync(path.join(process.cwd(), "rules.json"), "utf-8")).rules
+const Rules = JSON.parse(readFileSync(path.join(process.cwd(), "lib/rules.json"), "utf-8")).rules
 const projectPath = process.cwd()
 const files = globSync("src/**/*.{js,jsx,ts,tsx}",{
     cwd:projectPath,
@@ -34,6 +34,7 @@ for(const file of files){
     
     analysisCode(ats,file)
     console.log(issues)
+    writeFileSync(path.join)
 }
 
 function readFiles(file:string){
