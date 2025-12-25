@@ -5,6 +5,8 @@
   box-sizing: border-box;
   --background:#17153B;
   --main:#2E236C;
+  --secondary:#433D8B;
+  --text:#C8ACD6;
 }
 body{
   overflow: hidden;
