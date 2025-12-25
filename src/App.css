@@ -3,7 +3,8 @@
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
-  --background:#17153B
+  --background:#17153B;
+  --main:#2E236C;
 }
 body{
   overflow: hidden;
