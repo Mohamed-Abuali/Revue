@@ -2,7 +2,11 @@ import React from 'react'
 
 const ErrorList = () => {
   return (
-    <div className='error-list-container'>ErrorList</div>
+    <div className='error-list-container'>
+      <ul className='error-list'>
+        <li className='error-item'></li>
+      </ul>
+    </div>
   )
 }
 
