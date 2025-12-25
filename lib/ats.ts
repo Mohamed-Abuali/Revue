@@ -33,7 +33,7 @@ for(const file of files){
     //console.log(ats)
     
     analysisCode(ats,file)
-    console.log(issues)
+    console.log(issues,projectPath,files)
     writeFileSync(path.join(projectPath,"public/reports.json"),JSON.stringify(issues,null,2));
 }
 
