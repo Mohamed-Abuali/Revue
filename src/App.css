@@ -87,3 +87,7 @@ body{
   background-color: white;
   list-style: none;
 }
+button{
+  background-color: var(--background);
+  border-radius: 8px;
+}
