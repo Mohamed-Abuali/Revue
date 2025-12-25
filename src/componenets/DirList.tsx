@@ -6,7 +6,7 @@ const DirList = () => {
         <ul className='dir-list'>
           {projectStructure.map((dir,i) => (
              <li key={i} className='dir-item'>
-                    {dir.toString()}\
+                    {dir}
                 </li>
           ))}
                
@@ -19,52 +19,40 @@ const DirList = () => {
 
 export default DirList
 
-const projectStructure = [{
-  src: {
-    components: {
-      atoms: {},
-      molecules: {},
-      organisms: {},
-      templates: {},
-      pages: {}
-    },
-    pages: {},
-    hooks: {},
-    contexts: {},
-    services: {},
-    utils: {},
-    styles: {},
-    assets: {
-      images: {},
-      fonts: {},
-      icons: {}
-    },
-    lib: {
-      tools: {},
-      functions: {},
-      constants: {},
-      types: {}
-    },
-    routes: {},
-    store: {},
-    config: {}
-  },
-  public: {
-    index: {},
-    favicon: {},
-    manifest: {}
-  },
-  tests: {
-    unit: {},
-    integration: {},
-    e2e: {}
-  },
-  docs: {},
-  scripts: {},
-  dist: {},
-  build: {},
-  node_modules: {},
-  '.git': {},
-  '.vscode': {},
-  '.github': {}
-}];
+const projectStructure = [
+  'src/components/atoms',
+  'src/components/molecules',
+  'src/components/organisms',
+  'src/components/templates',
+  'src/components/pages',
+  'src/pages',
+  'src/hooks',
+  'src/contexts',
+  'src/services',
+  'src/utils',
+  'src/styles',
+  'src/assets/images',
+  'src/assets/fonts',
+  'src/assets/icons',
+  'src/lib/tools',
+  'src/lib/functions',
+  'src/lib/constants',
+  'src/lib/types',
+  'src/routes',
+  'src/store',
+  'src/config',
+  'public/index',
+  'public/favicon',
+  'public/manifest',
+  'tests/unit',
+  'tests/integration',
+  'tests/e2e',
+  'docs',
+  'scripts',
+  'dist',
+  'build',
+  'node_modules',
+  '.git',
+  '.vscode',
+  '.github'
+];
