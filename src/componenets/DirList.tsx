@@ -2,6 +2,7 @@
 const DirList = () => {
   return (
     <div className='dirlist-container'>
+      <h2>Folders</h2>
         <ul className='dir-list'>
                 <li className='dir-item'>
 

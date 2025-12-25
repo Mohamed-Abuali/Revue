@@ -18,7 +18,7 @@ body{
   display: grid;
   grid-template-columns: 260px 1fr;
   grid-template-rows: 100px 200px 1fr;
-  gap:5px;
+  gap:15px;
   background-color: var(--background);
 }
 .sidebar-container{
@@ -37,12 +37,13 @@ body{
 .dirlist-container{
   grid-column: 2;
   grid-row: 2/3;
-  border-radius: 24px;
-  border: 2px gray solid;
+  
+  
   padding: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 
 }
 .dir-list{
@@ -54,13 +55,14 @@ body{
   height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-
+  
+  padding: 10px;
 }
 .dir-item{
-  height: 150px;
+  height: 80px;
   width: 150px;
-  background-color: aqua;
-  border-radius: 24px;
+  background-color: var(--secondary);
+  border-radius: 14px;
   list-style: none;
 }
 .error-list-container{
@@ -90,5 +92,5 @@ body{
 button{
   background-color: var(--background);
   border-radius: 8px;
-  
+
 }
