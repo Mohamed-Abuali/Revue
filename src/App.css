@@ -55,7 +55,6 @@ body{
 .error-list-container{
   grid-row: 3/-1;
   grid-column: 2;
-  background-color: blue;
     display: flex;
     padding: 10px;
   justify-content: center;
