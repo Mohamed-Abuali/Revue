@@ -5,8 +5,8 @@ import {  readFileSync,writeFileSync} from "fs"
 //import * as Rules from "./rules.json"
 
 // @ts-expect-ignore
-import traverse from "@babel/traverse"
-
+import _traverse from "@babel/traverse"
+const traverse = _traverse.default;
 type issue = {
     rule:string;
     message:string;
