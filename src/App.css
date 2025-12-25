@@ -10,6 +10,7 @@
 }
 body{
   overflow: hidden;
+  
 }
 .home-container{
   width: 100vw;
@@ -18,14 +19,14 @@ body{
   grid-template-columns: 260px 1fr;
   grid-template-rows: 100px 200px 1fr;
   gap:5px;
-  background-color: aliceblue;
+  background-color: var(--background);
 }
 .sidebar-container{
   grid-column: 1;
   grid-row: -1/1;
   height: 100dvh;
   width: 260px;
-  background-color: gray;
+  background-color: var(--main);
 }
 .dirlist-container{
   grid-column: 2;
