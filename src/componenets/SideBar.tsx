@@ -8,7 +8,7 @@ const SideBar = () => {
         <h1>Revue</h1>
       </div>
       <div>
-        <Button/>
+        <Button  text='Scan'/>
       </div>
     </div>
   )
