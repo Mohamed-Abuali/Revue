@@ -34,7 +34,7 @@ for(const file of files){
     
     analysisCode(ats,file)
     console.log(issues)
-    writeFileSync(path.join)
+    writeFileSync(path.join(projectPath,"public/reports.json"),JSON.stringify(issues,null,2));
 }
 
 function readFiles(file:string){
