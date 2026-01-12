@@ -1,4 +1,5 @@
 import DicList from "./components/DicList";
+import ErrorList from "./components/ErrorList";
 import SideBar from "./components/SideBar";
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
       <SideBar/>
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <DicList/>
-        
+        <ErrorList/>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
   
 
