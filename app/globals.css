@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary:oklch(98.5% 0 0);
+  --secondary:oklch(44.2% 0.017 285.786);
 }
 
 @theme inline {
