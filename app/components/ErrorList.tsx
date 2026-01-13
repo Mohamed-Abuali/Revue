@@ -148,7 +148,7 @@ const ErrorListContent = ({ initialErrors = [] }: { initialErrors?: CodeError[] 
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 px-2 h-112.5 overflow-y-scroll">
         {filteredAndSortedErrors.map((error) => (
           <div
             key={error.id}
