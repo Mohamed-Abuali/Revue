@@ -64,8 +64,16 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { has
   }
 }
 
-const ErrorListContent = () => {
+const ErrorListContent = ({ initialErrors = [] }: { initialErrors?: CodeError[] }) => {
   const [errors, setErrors] = useState<CodeError[]>(initialErrors);
+  
+  // Update local state when prop changes
+  React.useEffect(() => {
+    if (initialErrors.length > 0) {
+        setErrors(initialErrors);
+    }
+  }, [initialErrors]);
+
   const [filterLevel, setFilterLevel] = useState<'all' | 'critical' | 'warning' | 'info'>('all');
   const [sortField, setSortField] = useState<'line' | 'name'>('line');
 
@@ -191,10 +199,10 @@ const ErrorListContent = () => {
   );
 };
 
-const ErrorList = () => {
+const ErrorList = ({ initialErrors }: { initialErrors?: CodeError[] }) => {
     return (
         <ErrorBoundary>
-            <ErrorListContent />
+            <ErrorListContent initialErrors={initialErrors} />
         </ErrorBoundary>
     )
 }
