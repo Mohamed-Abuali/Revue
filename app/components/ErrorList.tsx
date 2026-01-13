@@ -129,7 +129,7 @@ const ErrorListContent = () => {
             </select>
         </div>
         <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Sort By:</span>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300 w-20">Sort By:</span>
              <select
                 value={sortField}
                 onChange={(e) => setSortField(e.target.value as any)}
