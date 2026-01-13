@@ -112,13 +112,7 @@ const ErrorListContent = ({ initialErrors = [] }: { initialErrors?: CodeError[] 
     <div className="w-full max-w-2xl mx-auto p-4 space-y-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Code Errors</h1>
-        <div className="flex gap-2">
-            <button
-                onClick={addError}
-                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                Add Error
-            </button>
-        </div>
+
       </div>
 
       <div className="flex flex-wrap gap-4 p-4 bg-gray-50 dark:bg-zinc-900 rounded-lg">
