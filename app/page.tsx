@@ -49,9 +49,9 @@ export default function Home() {
       <SideBar onScan={handleScan} isLoading={isScanning} />
       <main className="flex min-h-screen w-full flex-1 flex-col items-center justify-start py-10 px-8 sm:px-16 bg-white dark:bg-black sm:items-start overflow-y-auto">
         <DicList/>
-        <div className="mt-10 w-full">
+        
              <ErrorList initialErrors={errors} />
-        </div>
+        
       </main>
     </div>
   );
