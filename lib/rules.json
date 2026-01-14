@@ -9,7 +9,7 @@
       "attributeNames": ["onClick", "onChange", "onSubmit", "onMouseEnter"],
       "expressionType": "ArrowFunctionExpression",
       "message": "Avoid inline arrow functions in JSX event handlers. This creates a new function on every render.",
-      "severity": "medium"
+      "severity": "warning"
     },
     {
       "id": "R002",
@@ -20,7 +20,7 @@
       "attributeNames": ["style", "options", "config"],
       "expressionType": "ObjectExpression",
       "message": "Avoid inline object literals in JSX props. This breaks memoization and causes unnecessary re-renders.",
-      "severity": "medium"
+      "severity": "warning"
     },
     {
       "id": "R003",
@@ -31,7 +31,7 @@
       "attributeNames": ["items", "data", "values"],
       "expressionType": "ArrayExpression",
       "message": "Avoid inline array literals in JSX props. Arrays are recreated on every render.",
-      "severity": "medium"
+      "severity": "warning"
     },
     {
       "id": "R004",
@@ -42,7 +42,7 @@
       "attributeNames": ["key"],
       "expressionType": "ArrayMap",
       "message": "Each element rendered in a list should have a unique 'key' prop to help React optimize reconciliation.",
-      "severity": "high"
+      "severity": "critical"
     },
     {
       "id": "R005",
@@ -53,7 +53,7 @@
       "attributeNames": ["useEffect"],
       "expressionType": "CallExpression",
       "message": "useEffect is missing a dependency array. This can cause unnecessary re-runs and performance issues.",
-      "severity": "high"
+      "severity": "critical"
     },
     {
       "id": "R006",
@@ -64,7 +64,7 @@
       "attributeNames": ["Component"],
       "expressionType": "LargeComponent",
       "message": "This component is very large. Consider splitting it into smaller components for better performance and maintainability.",
-      "severity": "low"
+      "severity": "info"
     }
   ]
 }
