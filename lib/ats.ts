@@ -61,8 +61,11 @@ function parseToAST(code: string) {
 
 function analysisCode(ast: TypeAST, file: string, rules: any[], issues: Issue[]) {
     traverse(ast, {
+        // Handle JSX Attribute Rules (e.g., no-inline-functions)
         JSXAttribute(path: any) {
             for (const rule of rules) {
+                if (rule.nodeType !== "JSXAttribute") continue;
+
                 const attrName = path.node.name?.name;
                 if (!attrName) continue;
 
@@ -77,7 +80,68 @@ function analysisCode(ast: TypeAST, file: string, rules: any[], issues: Issue[])
                     })
                 }
             }
+        },
 
+        // Handle Function Calls (e.g., useEffect, console.log)
+        CallExpression(path: any) {
+            for (const rule of rules) {
+                if (rule.nodeType !== "CallExpression") continue;
+
+                // Check for generic function calls like useEffect()
+                if (path.node.callee.type === "Identifier") {
+                    const funcName = path.node.callee.name;
+                    if (rule["attributeNames"].includes(funcName)) {
+                         // Logic for useEffect missing deps (R005)
+                         if (rule.ruleName === "missing-useeffect-deps") {
+                             if (path.node.arguments.length < 2) {
+                                  issues.push({
+                                    rule: rule["ruleName"],
+                                    message: rule["message"],
+                                    file,
+                                    line: path.node.loc?.start.line ?? 0,
+                                    level: rule["severity"],
+                                    category: rule["category"]
+                                })
+                             }
+                         }
+                    }
+                }
+
+                // Check for Member Expressions like console.log()
+                if (path.node.callee.type === "MemberExpression") {
+                     const objectName = path.node.callee.object.name;
+                     const propertyName = path.node.callee.property.name;
+                     
+                     if (objectName === "console" && rule.attributeNames.includes("console")) {
+                         issues.push({
+                            rule: rule["ruleName"],
+                            message: rule["message"],
+                            file,
+                            line: path.node.loc?.start.line ?? 0,
+                            level: rule["severity"],
+                            category: rule["category"]
+                        })
+                     }
+                }
+            }
+        },
+
+        // Handle Variable Declarations (e.g., no-var)
+        VariableDeclaration(path: any) {
+             for (const rule of rules) {
+                if (rule.nodeType !== "VariableDeclaration") continue;
+
+                if (path.node.kind === "var" && rule.ruleName === "no-var") {
+                    issues.push({
+                        rule: rule["ruleName"],
+                        message: rule["message"],
+                        file,
+                        line: path.node.loc?.start.line ?? 0,
+                        level: rule["severity"],
+                        category: rule["category"]
+                    })
+                }
+             }
         }
     })
 }

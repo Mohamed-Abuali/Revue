@@ -65,6 +65,39 @@
       "expressionType": "LargeComponent",
       "message": "This component is very large. Consider splitting it into smaller components for better performance and maintainability.",
       "severity": "info"
+    },
+    {
+      "id": "R007",
+      "ruleName": "no-console",
+      "name": "No console statements",
+      "category": "best-practice",
+      "nodeType": "CallExpression",
+      "attributeNames": ["console"],
+      "expressionType": "MemberExpression",
+      "message": "Avoid leaving console statements in production code.",
+      "severity": "critical"
+    },
+    {
+      "id": "R008",
+      "ruleName": "no-var",
+      "name": "No var keyword",
+      "category": "best-practice",
+      "nodeType": "VariableDeclaration",
+      "attributeNames": ["var"],
+      "expressionType": "VariableDeclaration",
+      "message": "Use 'let' or 'const' instead of 'var' to avoid hoisting issues and block-scope variables.",
+      "severity": "warning"
+    },
+    {
+      "id": "R009",
+      "ruleName": "no-danger",
+      "name": "No dangerouslySetInnerHTML",
+      "category": "security",
+      "nodeType": "JSXAttribute",
+      "attributeNames": ["dangerouslySetInnerHTML"],
+      "expressionType": "ObjectExpression",
+      "message": "Avoid using dangerouslySetInnerHTML as it exposes your application to XSS attacks.",
+      "severity": "critical"
     }
   ]
 }
