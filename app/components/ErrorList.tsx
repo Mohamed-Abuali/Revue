@@ -1,24 +1,17 @@
 "use client"
 
 import React, { useState, useMemo } from 'react'
-
-// Interface Definition
-export interface CodeError {
-  id: string;
-  errorName: string;
-  errorLevel: 'critical' | 'warning' | 'info';
-  errorLocation: string;
-  errorCodeLine: number;
-}
+import { CodeError } from '@/types';
 
 // Mock Data
-const initialErrors: CodeError[] = [
+const initialMockErrors: CodeError[] = [
   {
     id: '1',
     errorName: 'SyntaxError',
     errorLevel: 'critical',
     errorLocation: 'app/components/Button.tsx',
     errorCodeLine: 10,
+    message: 'Unexpected token'
   },
   {
     id: '2',
@@ -26,6 +19,7 @@ const initialErrors: CodeError[] = [
     errorLevel: 'warning',
     errorLocation: 'app/utils/helpers.ts',
     errorCodeLine: 45,
+    message: 'Variable "x" is defined but never used'
   },
   {
     id: '3',
@@ -33,6 +27,7 @@ const initialErrors: CodeError[] = [
     errorLevel: 'info',
     errorLocation: 'app/routes/index.tsx',
     errorCodeLine: 12,
+    message: 'Console statement found'
   },
 ];
 
@@ -65,7 +60,7 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { has
 }
 
 const ErrorListContent = ({ initialErrors = [] }: { initialErrors?: CodeError[] }) => {
-  const [errors, setErrors] = useState<CodeError[]>(initialErrors);
+  const [errors, setErrors] = useState<CodeError[]>(initialErrors.length > 0 ? initialErrors : initialMockErrors);
   
   // Update local state when prop changes
   React.useEffect(() => {
@@ -85,6 +80,7 @@ const ErrorListContent = ({ initialErrors = [] }: { initialErrors?: CodeError[] 
       errorLevel: 'warning',
       errorLocation: 'app/runtime.ts',
       errorCodeLine: Math.floor(Math.random() * 100),
+      message: 'Simulated runtime error'
     };
     setErrors([...errors, newError]);
   };
@@ -165,6 +161,9 @@ const ErrorListContent = ({ initialErrors = [] }: { initialErrors?: CodeError[] 
                   {error.errorLevel}
                 </span>
               </div>
+              <p className="text-sm text-gray-800 dark:text-gray-200 mb-2">
+                  {error.message}
+              </p>
               <p className="text-sm text-gray-600 dark:text-gray-300">
                 <span className="font-medium">File:</span> {error.errorLocation}
               </p>
