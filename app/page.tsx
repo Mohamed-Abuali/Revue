@@ -1,9 +1,11 @@
 "use client"
 
 import { useState } from "react";
-import DicList from "./components/DicList";
-import ErrorList, { CodeError } from "./components/ErrorList";
+// import DicList from "./components/DicList"; // Removed
+import StatsOverview from "./components/StatsOverview";
+import ErrorList from "./components/ErrorList";
 import SideBar from "./components/SideBar";
+import { CodeError } from "@/types";
 
 export default function Home() {
   const [errors, setErrors] = useState<CodeError[]>([]);
@@ -33,6 +35,7 @@ export default function Home() {
         errorLevel: issue.level === 'error' ? 'critical' : issue.level, // Normalize levels
         errorLocation: issue.file,
         errorCodeLine: issue.line,
+        message: issue.message
       }));
 
       setErrors(mappedErrors);
@@ -48,10 +51,10 @@ export default function Home() {
     <div className="flex min-h-screen items-start justify-start bg-zinc-50 font-sans dark:bg-black">
       <SideBar onScan={handleScan} isLoading={isScanning} />
       <main className="flex min-h-screen w-full flex-1 flex-col items-center justify-start py-10 px-8 sm:px-16 bg-white dark:bg-black sm:items-start overflow-y-auto">
-        <DicList/>
-        
+        <StatsOverview errors={errors} />
+        <div className="mt-10 w-full">
              <ErrorList initialErrors={errors} />
-        
+        </div>
       </main>
     </div>
   );
