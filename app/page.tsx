@@ -6,6 +6,7 @@ import StatsOverview from "./components/StatsOverview";
 import ErrorList from "./components/ErrorList";
 import SideBar from "./components/SideBar";
 import { CodeError } from "@/types";
+import DicList from "./components/DicList";
 
 export default function Home() {
   const [errors, setErrors] = useState<CodeError[]>([]);
@@ -52,8 +53,9 @@ export default function Home() {
       <SideBar onScan={handleScan} isLoading={isScanning} />
       <main className="flex min-h-screen w-full flex-1 flex-col items-center justify-start py-10 px-8 sm:px-16 bg-white dark:bg-black sm:items-start overflow-y-auto">
         <StatsOverview errors={errors} />
-        <div className="mt-10 w-full">
+        <div className="mt-10 w-full flex flex-row items-start gap-5">
              <ErrorList initialErrors={errors} />
+             <DicList/>
         </div>
       </main>
     </div>
