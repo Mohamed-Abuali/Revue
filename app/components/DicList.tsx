@@ -15,7 +15,7 @@ const DicList = ({folders = []}:{folders?: LocationError[]}) => {
           </h1>
           <ul className='flex justify-start items-center gap-5'>
         
-           {location?.map((loc,i) => (
+           {folders.map((loc,i) => (
                <li key={i} className='border-2 hover:border-zinc-50 py-3 px-6 border-transparent transition-all duration-200 ease-in-out rounded-md cursor-pointer'>
                 <FaRegFolder className='text-6xl'/>
                 <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
