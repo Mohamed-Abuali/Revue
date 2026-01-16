@@ -2,10 +2,9 @@
 
 **Revue** is a powerful, extensible static code analysis tool designed to help developers maintain high code quality standards. Built with modern web technologies, it provides a sleek interface for scanning projects, identifying issues, and enforcing custom coding rules.
 
-<video src="public/videos/Revue.mp4" controls width="640">
-  Your browser does not support the video tag.
-</video>
 
+<video src="https://github.com//Mohamed-Abuali/Revue/raw/main/public/videos/Revue.mp4" controls width="640">
+</video>
 ## 🚀 Features
 
 -   **Custom Rule Engine**: Define your own linting rules using a simple JSON configuration.
