@@ -5,13 +5,14 @@ import { useState } from "react";
 import StatsOverview from "./components/StatsOverview";
 import ErrorList from "./components/ErrorList";
 import SideBar from "./components/SideBar";
-import { CodeError } from "@/types";
+import { CodeError, LocationError } from "@/types";
 import DicList from "./components/DicList";
 
 export default function Home() {
   const [errors, setErrors] = useState<CodeError[]>([]);
   const [isScanning, setIsScanning] = useState(false);
 
+  const [errorsLocation,setErrorsLocation] = useState<LocationError[]>()
   const handleScan = async (path: string) => {
     setIsScanning(true);
     try {
@@ -38,7 +39,10 @@ export default function Home() {
         errorCodeLine: issue.line,
         message: issue.message
       }));
-
+      const locations:LocationError[] = data.issues.map((loc: any) => ({
+        errorLocation: loc.file,
+      }));
+      setErrorsLocation(locations)
       setErrors(mappedErrors);
     } catch (error) {
       console.error("Scan error:", error);
@@ -47,7 +51,7 @@ export default function Home() {
       setIsScanning(false);
     }
   };
-
+console.log(errorsLocation)
   return (
     <div className="flex min-h-screen items-start justify-start bg-zinc-50 font-sans dark:bg-black">
       <SideBar onScan={handleScan} isLoading={isScanning} />
@@ -55,7 +59,7 @@ export default function Home() {
         <StatsOverview errors={errors} />
         <div className="mt-10 w-full flex flex-row items-start gap-5">
              <ErrorList initialErrors={errors} />
-             <DicList/>
+             <DicList folders={errorsLocation}/>
         </div>
       </main>
     </div>

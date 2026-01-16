@@ -73,17 +73,7 @@ const ErrorListContent = ({ initialErrors = [] }: { initialErrors?: CodeError[] 
   const [sortField, setSortField] = useState<'line' | 'name'>('line');
 
   // Helper Methods
-  const addError = () => {
-    const newError: CodeError = {
-      id: Date.now().toString(),
-      errorName: 'NewRuntimeError',
-      errorLevel: 'warning',
-      errorLocation: 'app/runtime.ts',
-      errorCodeLine: Math.floor(Math.random() * 100),
-      message: 'Simulated runtime error'
-    };
-    setErrors([...errors, newError]);
-  };
+  
 
   const removeError = (id: string) => {
     setErrors(errors.filter(e => e.id !== id));

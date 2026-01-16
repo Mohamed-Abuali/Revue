@@ -15,3 +15,4 @@ export interface CodeError {
   errorCodeLine: number;
   message: string;
 }
+export type LocationError = Pick<CodeError,"errorLocation">
